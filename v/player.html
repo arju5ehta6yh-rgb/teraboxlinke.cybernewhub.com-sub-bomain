@@ -188,8 +188,9 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      position: relative;
     }
     .initial-ad-header {
       background: #111;
@@ -199,6 +200,11 @@
       font-size: 16px;
       border-radius: 8px;
       margin-bottom: 12px;
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
     }
 
     /* ✅ Common ad wrapper – ad ko bilkul center me rakhne ke liye */
@@ -213,19 +219,30 @@
     #initialAdTimer {
       margin-top: 10px;
       font-weight: 600;
-      color: #222;
+      color: #fff;
       font-size: 14px;
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
     }
     #initialSkipBtn {
-      background: #000;
+      background: linear-gradient(to right, #00bcd4, #009688);
       color: #fff;
-      padding: 8px 16px;
+      padding: 12px 24px;
       font-size: 14px;
+      font-weight: bold;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-top: 12px;
       display: none;
       cursor: pointer;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
     }
     .code-block-label {
       font-size: 12px;
@@ -310,8 +327,8 @@
     <div class="initial-ad-modal">
       <div class="initial-ad-header">Advertiser</div>
 
-      <div class="ad-wrapper" style="min-height:100%; width: 100%; flex: 1; display: flex; align-items: center; justify-content: center;">
-        <div id="div-gpt-ad-1767668346025-0" style="min-width: 250px; min-height: 250px; width: 100%; height: 100%;"></div>
+      <div class="ad-wrapper" style="width: 100%; flex: 1; display: flex; align-items: center; justify-content: center; padding-top: 60px; padding-bottom: 120px;">
+        <div id="div-gpt-ad-1767668346025-0" style="min-width: 250px; min-height: 250px; width: 100%; max-width: 100%; height: auto;"></div>
       </div>
 
       <div id="initialAdTimer">⏳ Wait 6 seconds...</div>
@@ -339,44 +356,228 @@
     </div>
   </center>
 
-  <!-- Content -->
-  <section style="background-color: #181818; color: #f5f5f5; padding: 25px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); font-family: 'Segoe UI', sans-serif;">
-    <h2 style="color: #00ffd5; font-size: 2rem; margin-bottom: 16px;">🎬 Latest 20 Trending Web Series (2025)</h2>
-
-    <div style="font-size:1rem; line-height:1.7;">
-      <p><strong>1️⃣ Mirzapur Season 3</strong> – The power struggle in Mirzapur intensifies as alliances shift and secrets unfold. A perfect blend of suspense, family drama, and revenge makes it a fan favorite.</p>
-      <p><strong>2️⃣ The Family Man Season 3</strong> – Srikant Tiwari returns with new challenges balancing his dual life. The series combines action, humor, and emotion with realistic storytelling.</p>
-      <p><strong>3️⃣ Asur 2</strong> – A thrilling psychological series where mythology meets modern crime investigation. Arshad Warsi and Barun Sobti deliver powerful performances.</p>
-      <p><strong>4️⃣ Panchayat Season 3</strong> – A lighthearted look into rural India, filled with humor, heart, and simplicity. Jitendra Kumar shines again as the lovable secretary of Phulera.</p>
-      <p><strong>5️⃣ Kota Factory Season 3</strong> – An emotional yet inspiring story about students chasing dreams. The realistic portrayal of coaching life continues to impress viewers.</p>
-      <p><strong>6️⃣ Farzi</strong> – A gripping crime drama about an artist who takes on the system. Shahid Kapoor’s OTT debut brings style, emotion, and a sharp social message.</p>
-      <p><strong>7️⃣ The Night Manager 2</strong> – A stylish espionage thriller filled with twists and exotic backdrops. Aditya Roy Kapur and Anil Kapoor deliver top-notch performances.</p>
-      <p><strong>8️⃣ Scam 2003</strong> – Inspired by real-life events, this sequel explores another shocking financial scam in India. The storytelling and direction are absolutely compelling.</p>
-      <p><strong>9️⃣ Made in Heaven Season 2</strong> – A glamorous yet emotional tale about weddings, love, and social issues. The visuals and storytelling are visually stunning and mature.</p>
-      <p><strong>🔟 Taaza Khabar</strong> – A magical realism story that blends humor, emotion, and hope. Bhuvan Bam’s performance adds depth to this unique digital-age tale.</p>
-      <p><strong>1️⃣1️⃣ Aarya Season 3</strong> – Sushmita Sen delivers yet another powerful performance as a mother-turned-warrior. The drama and tension keep audiences glued.</p>
-      <p><strong>1️⃣2️⃣ Bambai Meri Jaan</strong> – A gripping crime drama set in post-independence Mumbai. The series beautifully captures the rise of crime and the fall of morality.</p>
-      <p><strong>1️⃣3️⃣ Guns &amp; Gulaabs</strong> – A quirky crime comedy with retro vibes. Rajkummar Rao and Dulquer Salmaan bring humor and chaos to the world of small-town gangsters.</p>
-      <p><strong>1️⃣4️⃣ Dahaad</strong> – A slow-burn crime thriller featuring Sonakshi Sinha as a strong female cop. Smartly written, intense, and realistic in its approach.</p>
-      <p><strong>1️⃣5️⃣ Jubilee</strong> – A period drama set in the golden era of Indian cinema. With stunning visuals and soulful performances, it’s a treat for film lovers.</p>
-      <p><strong>1️⃣6️⃣ Inspector Avinash</strong> – Based on true events, this cop drama showcases courage and integrity. Randeep Hooda’s performance makes it thrilling and inspiring.</p>
-      <p><strong>1️⃣7️⃣ Broken But Beautiful 4</strong> – A heartfelt romantic drama that explores love, heartbreak, and healing. Emotional storytelling with soothing music.</p>
-      <p><strong>1️⃣8️⃣ Shehar Lakhot</strong> – A dark yet stylish series filled with mysteries and small-town secrets. It’s cinematic, unpredictable, and emotionally gripping.</p>
-      <p><strong>1️⃣9️⃣ The Freelancer</strong> – A high-octane rescue mission thriller set across global locations. Mohit Raina’s intense role keeps viewers on the edge.</p>
-      <p><strong>2️⃣0️⃣ Adhura</strong> – A supernatural suspense series with a deep emotional core. It blends horror, mystery, and human emotions in a subtle, engaging way.</p>
-    </div>
-
-    <p style="font-size: 0.95rem; color: #aaaaaa; margin-top: 20px;">
-      ⚠️ Note: All descriptions are for informational and entertainment purposes only. These web series are available on official streaming platforms and follow content guidelines suitable for general audiences.
-    </p>
-  </section>
-
-  <p style="text-align:center; color: #555;">⚠️ Tap the video player to watch an initial ad, then skip and continue to video.</p>
+  <p style="text-align:center; color: #555; margin-top: 20px;">⚠️ Tap the video player to watch an initial ad, then skip and continue to video.</p>
 
   <footer>
     © 2025 TeraboxLinke |
     <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
   </footer>
+
+  <!-- 💰 FINANCE CONTENT SECTION - HIGH CPM -->
+  <section style="background-color: #181818; color: #f5f5f5; padding: 40px 24px; margin-top: 30px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); font-family: 'Segoe UI', sans-serif;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="color: #00ffd5; font-size: 2rem; margin-bottom: 24px; text-align: center;">
+        💰 Personal Finance & Investment Guide 2025
+      </h2>
+
+      <div style="font-size: 1rem; line-height: 1.7;">
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">📊 Smart Investment Strategies</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>1. Diversified Portfolio:</strong> Spread your investments across stocks, bonds, mutual funds, and real estate to minimize risk and maximize returns. A well-diversified portfolio can help you achieve long-term financial goals while protecting against market volatility.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>2. SIP in Mutual Funds:</strong> Systematic Investment Plans (SIPs) allow you to invest small amounts regularly, benefiting from rupee cost averaging. Start with as low as ₹500 per month and build wealth over time through disciplined investing.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>3. Stock Market Investing:</strong> Invest in fundamentally strong companies with good growth potential. Consider blue-chip stocks for stability and mid-cap stocks for higher growth opportunities. Always do thorough research before investing.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>4. Fixed Deposits & Bonds:</strong> For risk-averse investors, fixed deposits and government bonds offer guaranteed returns. These are ideal for short to medium-term financial goals and provide capital protection.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">💳 Credit Card & Loan Management</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Best Credit Cards 2025:</strong> Choose credit cards that offer maximum rewards, cashback, and benefits. Look for cards with low annual fees, high reward rates, and travel benefits. Compare interest rates and choose cards that match your spending patterns.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Personal Loans:</strong> When you need funds for emergencies or major expenses, personal loans can be a quick solution. Compare interest rates from different banks and NBFCs. Look for loans with flexible repayment options and minimal processing fees.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Home Loans:</strong> Buying a home? Compare home loan interest rates from top banks. Look for loans with low EMIs, flexible tenure options, and minimal prepayment charges. Use home loan calculators to plan your finances effectively.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Credit Score Improvement:</strong> Maintain a good credit score above 750 by paying bills on time, keeping credit utilization low, and avoiding too many loan applications. A good credit score helps you get better interest rates on loans and credit cards.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">🏦 Banking & Savings Accounts</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>High-Interest Savings Accounts:</strong> Compare savings account interest rates from different banks. Some banks offer up to 7% interest on savings accounts. Look for accounts with zero balance requirements and minimal charges.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Fixed Deposits:</strong> Fixed deposits offer guaranteed returns with capital protection. Compare FD rates from different banks and choose the best tenure based on your financial goals. Senior citizens often get higher interest rates.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Recurring Deposits:</strong> Build a savings habit with recurring deposits. Invest a fixed amount monthly and earn guaranteed returns. RDs are perfect for short-term goals like vacation planning or emergency fund building.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">🛡️ Insurance & Financial Security</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Term Life Insurance:</strong> Protect your family's financial future with term life insurance. Compare term insurance plans from top insurers. Look for plans with high coverage at affordable premiums and good claim settlement ratios.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Health Insurance:</strong> Medical emergencies can drain your savings. Invest in comprehensive health insurance that covers hospitalization, pre and post-hospitalization expenses, and critical illness. Compare health insurance plans and choose the best coverage.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Motor Insurance:</strong> Protect your vehicle with comprehensive motor insurance. Compare car and bike insurance premiums from different insurers. Look for policies with cashless claim facilities and good network hospitals/garages.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">📈 Tax Planning & Savings</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Tax-Saving Investments:</strong> Invest in ELSS mutual funds, PPF, NSC, and tax-saving fixed deposits to save up to ₹1.5 lakh under Section 80C. Plan your investments before the financial year ends to maximize tax savings. ELSS funds have a lock-in period of 3 years and offer potential for higher returns compared to traditional tax-saving instruments.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Health Insurance Tax Benefits:</strong> Premiums paid for health insurance for self, spouse, children, and parents are eligible for tax deduction under Section 80D. Senior citizens get higher deduction limits up to ₹50,000. Super senior citizens (above 80 years) can claim up to ₹1 lakh deduction.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Home Loan Tax Benefits:</strong> Interest paid on home loans is eligible for tax deduction under Section 24(b) up to ₹2 lakh. Principal repayment qualifies for deduction under Section 80C. First-time homebuyers get additional benefits under Section 80EEA with deduction up to ₹1.5 lakh on interest.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Section 80G Donations:</strong> Donations made to eligible charitable organizations qualify for tax deduction under Section 80G. Some donations offer 100% deduction while others offer 50% deduction. Keep proper receipts and certificates for claiming deductions.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>NPS Tax Benefits:</strong> National Pension Scheme offers additional tax deduction of ₹50,000 under Section 80CCD(1B) over and above the ₹1.5 lakh limit under Section 80C. This makes NPS an attractive retirement planning tool with tax benefits.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">💎 Cryptocurrency & Digital Assets</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Bitcoin & Cryptocurrency Investing:</strong> Cryptocurrency has emerged as an alternative investment class. Bitcoin, Ethereum, and other digital assets offer high volatility and potential returns. However, invest only what you can afford to lose. Use reputable exchanges and secure wallets for transactions.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>NFT Investments:</strong> Non-Fungible Tokens (NFTs) represent ownership of digital assets. Research thoroughly before investing in NFTs as the market is highly speculative. Focus on established platforms and verified collections.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Crypto Tax Implications:</strong> In India, cryptocurrency gains are taxed at 30% under income tax. TDS of 1% applies on crypto transactions above certain thresholds. Maintain proper records of all transactions for tax filing purposes.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Digital Gold:</strong> Invest in digital gold through apps and platforms. Digital gold offers convenience, low investment minimums, and easy liquidity. Compare platforms for pricing, storage fees, and buyback options.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">🏠 Real Estate Investment</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Residential Property Investment:</strong> Real estate remains a popular investment option in India. Consider location, connectivity, builder reputation, and future development plans before investing. Residential properties offer rental income and capital appreciation potential.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Commercial Real Estate:</strong> Commercial properties like offices, shops, and warehouses offer higher rental yields compared to residential properties. However, they require larger capital investment and longer lock-in periods.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>REITs (Real Estate Investment Trusts):</strong> REITs allow you to invest in real estate without buying physical property. They offer regular dividends and are traded on stock exchanges. REITs provide diversification and professional management of real estate assets.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Property Documents Verification:</strong> Always verify property documents, title deeds, and approvals before purchasing. Hire a legal expert to check for encumbrances, pending litigations, and clear title. Verify RERA registration for new projects.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">🎯 Retirement Planning & Pension</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>EPF (Employee Provident Fund):</strong> EPF is a mandatory retirement savings scheme for salaried employees. Both employee and employer contribute 12% of basic salary. EPF offers tax-free returns and is one of the safest investment options with guaranteed returns.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>PPF (Public Provident Fund):</strong> PPF offers tax-free returns and is ideal for long-term retirement planning. Invest minimum ₹500 and maximum ₹1.5 lakh per year. PPF has a lock-in period of 15 years with partial withdrawal options after 7 years.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>NPS (National Pension Scheme):</strong> NPS is a market-linked retirement savings scheme. You can choose between equity, debt, and government securities. NPS offers tax benefits and flexibility in asset allocation. Withdrawals are partially taxable at maturity.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Annuity Plans:</strong> Annuity plans provide regular income after retirement. Compare different annuity options like immediate annuity, deferred annuity, and life annuity. Consider inflation protection and payout options before choosing an annuity plan.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Retirement Corpus Calculation:</strong> Calculate your retirement corpus based on current expenses, inflation rate, and expected returns. Aim to accumulate 25-30 times your annual expenses for a comfortable retirement. Start early to benefit from compounding.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">💼 Wealth Management & Financial Planning</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Financial Goal Planning:</strong> Set clear financial goals for short-term (1-3 years), medium-term (3-7 years), and long-term (7+ years). Allocate investments based on time horizon and risk tolerance. Review and rebalance your portfolio regularly.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Emergency Fund:</strong> Build an emergency fund equivalent to 6-12 months of expenses. Keep this in a liquid savings account or liquid mutual funds. Emergency fund helps you handle unexpected expenses without disrupting your investments.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Asset Allocation Strategy:</strong> Diversify your portfolio across asset classes based on your age and risk profile. Young investors can allocate more to equity (80-90%), while older investors should focus on debt and fixed income (60-70%).
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Wealth Advisors:</strong> Consider hiring a certified financial planner or wealth advisor for complex financial planning. They can help with tax optimization, estate planning, and investment strategy. Verify credentials and check for SEBI registration.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Estate Planning:</strong> Plan for transfer of assets to heirs through wills, trusts, and nominations. Update nominations on all financial instruments. Consider creating a will to avoid legal complications and ensure smooth asset transfer.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">📱 Digital Banking & Fintech</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>UPI & Digital Payments:</strong> UPI has revolutionized digital payments in India. Use UPI apps like PhonePe, Google Pay, and Paytm for seamless transactions. UPI offers instant transfers, QR code payments, and bill payments with zero charges.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Digital Wallets:</strong> Digital wallets provide convenience for small transactions. Compare wallets based on cashback offers, merchant acceptance, and security features. Link wallets to bank accounts for easy top-ups and transfers.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Investment Apps:</strong> Use investment apps for SIPs, stock trading, and mutual fund investments. Compare apps based on brokerage charges, user interface, research tools, and customer support. Ensure apps are SEBI registered.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Personal Finance Apps:</strong> Track expenses, budgets, and investments using personal finance apps. These apps help you understand spending patterns, set financial goals, and monitor investment performance. Choose apps with strong data security.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Digital Lending:</strong> Fintech companies offer quick personal loans, credit cards, and business loans through digital platforms. Compare interest rates, processing fees, and repayment terms. Check for RBI registration and read terms carefully.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">📊 Stock Market & Trading</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Equity Investing Basics:</strong> Understand fundamental analysis and technical analysis before investing in stocks. Fundamental analysis focuses on company financials, while technical analysis studies price patterns. Combine both for better investment decisions.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>IPO Investing:</strong> Initial Public Offerings (IPOs) allow you to buy shares when companies list on stock exchanges. Research company fundamentals, valuation, and growth prospects before applying. Compare IPO pricing with peer companies.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Derivatives Trading:</strong> Futures and options trading requires advanced knowledge and risk management. Derivatives can amplify gains but also losses. Only experienced traders should engage in derivatives trading. Use stop-loss orders to limit risks.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Dividend Investing:</strong> Invest in dividend-paying stocks for regular income. Look for companies with consistent dividend history and payout ratios. Dividend income is tax-free up to ₹10 lakh per year in the hands of investors.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Stock Market Indices:</strong> Track major indices like Nifty 50, Sensex, Nifty Bank, and sectoral indices to understand market trends. Index funds and ETFs allow you to invest in entire indices at low costs. These provide diversification and market returns.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,255,213,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #00ffd5;">
+          <h3 style="color: #00ffd5; font-size: 1.4rem; margin-bottom: 15px;">💰 Business Loans & SME Finance</h3>
+          <p style="margin-bottom: 12px;">
+            <strong>Business Loans for Startups:</strong> Startups can avail business loans from banks, NBFCs, and government schemes like MUDRA loans. Compare interest rates, collateral requirements, and processing time. Prepare a solid business plan and financial projections.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Working Capital Loans:</strong> Working capital loans help businesses manage day-to-day operations and cash flow. Compare different lenders for interest rates, repayment flexibility, and documentation requirements. Maintain good credit history for better loan terms.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Equipment Financing:</strong> Finance machinery and equipment through equipment loans. These loans are secured against the equipment itself. Compare interest rates, down payment requirements, and tenure options. Consider tax benefits on equipment depreciation.
+          </p>
+          <p style="margin-bottom: 12px;">
+            <strong>Invoice Discounting:</strong> Convert unpaid invoices into immediate cash through invoice discounting. This helps improve cash flow without taking traditional loans. Compare platforms for discount rates, processing fees, and approval time.
+          </p>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #aaaaaa; margin-top: 20px; text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+          ⚠️ Disclaimer: This content is for informational purposes only. Always consult with a certified financial advisor before making investment decisions. Past performance does not guarantee future returns. Read all scheme-related documents carefully before investing. Market investments are subject to market risks. Please invest wisely.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- 🔻 ANCHOR AD - 40% FROM BOTTOM -->
   <div id="anchorAd" class="anchor-ad">
