@@ -5,20 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎥 Watch Video</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GMSTZVGVHV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GMSTZVGVHV');
-</script>
-
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCYCTSLC3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -32,9 +19,22 @@
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
   <script>
     window.googletag = window.googletag || {cmd: []};
+    googletag.cmd = googletag.cmd || [];
+  </script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75Q99BZ0VJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-75Q99BZ0VJ');
+</script>
+
+  <!-- ✅ Define all GAM slots -->
+  <script>
     googletag.cmd.push(function() {
-
       /* 🔺 NAVBAR KE UPER */
       googletag.defineSlot(
         '/23113214187/first-ad',
@@ -63,12 +63,17 @@
         'div-gpt-ad-1768933367871-0'
       ).addService(googletag.pubads());
 
+      // Reward ad
+      googletag.defineSlot(
+        '/23113214187/reward',
+        ['fluid', [1, 1]],
+        'div-gpt-ad-1768933873810-0'
+      ).addService(googletag.pubads());
+
       googletag.pubads().enableSingleRequest();
       googletag.enableServices();
     });
   </script>
-
- 
 
   <style>
     :root {
@@ -162,116 +167,157 @@
       cursor: pointer;
     }
 
-    /* 🔥 Initial Ad Popup Styles */
+    /* Label above ads */
+    .code-block-label {
+      font-size: 11px;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 16px;
+      margin-bottom: 4px;
+    }
+
+    /* 🔄 Circular loader inside overlay */
+    .loader-wrapper {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+    }
+    .spinner {
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top-color: #00ffd5;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    .countdown-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Initial/Interstitial Ad Modal */
     .initial-ad-overlay {
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
       display: none;
-      justify-content: center;
       align-items: center;
-      z-index: 9999;
+      justify-content: center;
+      flex-direction: column;
     }
-    .initial-ad-modal {
+    .initial-ad-overlay.active {
+      display: flex;
+    }
+    .initial-ad-container {
+      position: relative;
       width: 90%;
-      max-width: 380px;
-      background: #ffffff;
-      border-radius: 14px;
+      max-width: 400px;
+      background: #1a1a1a;
+      border-radius: 12px;
       padding: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
     .initial-ad-header {
-      background: #111;
-      color: #fff;
-      padding: 8px;
-      font-weight: 600;
-      font-size: 16px;
-      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 12px;
     }
-
-    /* ✅ Common ad wrapper – ad ko bilkul center me rakhne ke liye */
-    .ad-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      min-height: 280px; /* aapke new slot min-height ke hisab se */
-    }
-
-    #initialAdTimer {
-      margin-top: 10px;
-      font-weight: 600;
-      color: #222;
-      font-size: 14px;
-    }
-    #initialSkipBtn {
-      background: #000;
-      color: #fff;
-      padding: 8px 16px;
-      font-size: 14px;
-      border: none;
-      border-radius: 6px;
-      margin-top: 12px;
-      display: none;
-      cursor: pointer;
-    }
-    .code-block-label {
-      font-size: 12px;
+    .initial-ad-label {
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      margin-top: 10px;
-      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      color: #bbb;
+    }
+    .initial-ad-skip {
+      background: transparent;
+      border: 1px solid #555;
+      color: #f5f5f5;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .initial-ad-skip:hover {
+      background: #333;
+      border-color: #777;
+    }
+    .initial-ad-skip:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .initial-ad-close {
+      background: linear-gradient(to right, #00bcd4, #009688);
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 12px;
+      width: 100%;
+      display: none;
+    }
+    .initial-ad-close.show {
+      display: block;
+    }
+    .initial-ad-timer {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔺 AD #1 – Navbar ke upar -->
+  <!-- 🔝 TOP BANNER AD -->
   <center>
-    <div class="code-block-label">Advertisements</div>
-    <div class="ad-wrapper">
-      <div id="div-gpt-ad-1768933234297-0" style="min-width: 250px; min-height: 250px;">
-        <script>
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933234297-0'); });
-        </script>
-      </div>
+    <div class="code-block-label">Advertiser</div>
+    <!-- /23113214187/first-ad -->
+    <div id='div-gpt-ad-1768933234297-0' style='min-width: 250px; min-height: 250px;'>
+      <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933234297-0'); });
+      </script>
     </div>
   </center>
 
-  <!-- 🔹 Navbar -->
   <nav>Watch Video</nav>
 
-  <!-- 🔺 AD #2 – Navbar ke niche (player ke upar) -->
+  <!-- 🟡 MIDDLE BANNER AD -->
   <center>
-    <div class="code-block-label">Advertisements</div>
-    <div class="ad-wrapper">
-      <div id="div-gpt-ad-1768933297718-0" style="min-width: 250px; min-height: 250px;">
-        <script>
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933297718-0'); });
-        </script>
-      </div>
+    <div class="code-block-label">Advertiser</div>
+    <!-- /23113214187/first-ad -->
+    <div id='div-gpt-ad-1768933297718-0' style='min-width: 250px; min-height: 250px;'>
+      <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933297718-0'); });
+      </script>
     </div>
   </center>
 
-  <!-- 🔥 INITIAL POPUP OVERLAY -->
-  <div class="initial-ad-overlay" id="initialAdOverlay">
-    <div class="initial-ad-modal">
-      <div class="initial-ad-header">Advertiser</div>
-
-      <div class="ad-wrapper" style="min-height:280px;">
-        <div id="div-gpt-ad-1768933367871-0" style="min-width: 250px; min-height: 250px;"></div>
-      </div>
-
-      <div id="initialAdTimer">⏳ Wait 6 seconds...</div>
-      <button id="initialSkipBtn">Skip Ad</button>
-    </div>
-  </div>
-
-  <!-- 🎥 Player -->
   <div class="player-container">
     <div class="player-box" id="playerBox">
       <img src="img/a1.jpg" alt="Video Thumbnail" />
@@ -279,19 +325,18 @@
     </div>
   </div>
 
-  <!-- 🔺 AD #3 – Player ke niche -->
+  <!-- 🔻 BOTTOM BANNER AD -->
   <center>
-    <div class="code-block-label">Advertisements</div>
-    <div class="ad-wrapper">
-      <div id="div-gpt-ad-1768933333012-0" style="min-width: 250px; min-height: 250px;">
-        <script>
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933333012-0'); });
-        </script>
-      </div>
+    <div class="code-block-label">Advertiser</div>
+    <!-- /23113214187/first-ad -->
+    <div id='div-gpt-ad-1768933333012-0' style='min-width: 250px; min-height: 250px;'>
+      <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933333012-0'); });
+      </script>
     </div>
   </center>
 
-  <!-- Content -->
+  <!-- CONTENT SECTION -->
   <section style="background-color: #181818; color: #f5f5f5; padding: 25px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); font-family: 'Segoe UI', sans-serif;">
     <h2 style="color: #00ffd5; font-size: 2rem; margin-bottom: 16px;">🎬 Latest 20 Trending Web Series (2025)</h2>
 
@@ -305,17 +350,17 @@
       <p><strong>7️⃣ The Night Manager 2</strong> – A stylish espionage thriller filled with twists and exotic backdrops. Aditya Roy Kapur and Anil Kapoor deliver top-notch performances.</p>
       <p><strong>8️⃣ Scam 2003</strong> – Inspired by real-life events, this sequel explores another shocking financial scam in India. The storytelling and direction are absolutely compelling.</p>
       <p><strong>9️⃣ Made in Heaven Season 2</strong> – A glamorous yet emotional tale about weddings, love, and social issues. The visuals and storytelling are visually stunning and mature.</p>
-      <p><strong>🔟 Taaza Khabar</strong> – A magical realism story that blends humor, emotion, and hope. Bhuvan Bam’s performance adds depth to this unique digital-age tale.</p>
-      <p><strong>1️⃣1️⃣ Aarya Season 3</strong> – Sushmita Sen delivers yet another powerful performance as a mother-turned-warrior. The drama and tension keep audiences glued.</p>
-      <p><strong>1️⃣2️⃣ Bambai Meri Jaan</strong> – A gripping crime drama set in post-independence Mumbai. The series beautifully captures the rise of crime and the fall of morality.</p>
-      <p><strong>1️⃣3️⃣ Guns &amp; Gulaabs</strong> – A quirky crime comedy with retro vibes. Rajkummar Rao and Dulquer Salmaan bring humor and chaos to the world of small-town gangsters.</p>
-      <p><strong>1️⃣4️⃣ Dahaad</strong> – A slow-burn crime thriller featuring Sonakshi Sinha as a strong female cop. Smartly written, intense, and realistic in its approach.</p>
-      <p><strong>1️⃣5️⃣ Jubilee</strong> – A period drama set in the golden era of Indian cinema. With stunning visuals and soulful performances, it’s a treat for film lovers.</p>
-      <p><strong>1️⃣6️⃣ Inspector Avinash</strong> – Based on true events, this cop drama showcases courage and integrity. Randeep Hooda’s performance makes it thrilling and inspiring.</p>
-      <p><strong>1️⃣7️⃣ Broken But Beautiful 4</strong> – A heartfelt romantic drama that explores love, heartbreak, and healing. Emotional storytelling with soothing music.</p>
-      <p><strong>1️⃣8️⃣ Shehar Lakhot</strong> – A dark yet stylish series filled with mysteries and small-town secrets. It’s cinematic, unpredictable, and emotionally gripping.</p>
-      <p><strong>1️⃣9️⃣ The Freelancer</strong> – A high-octane rescue mission thriller set across global locations. Mohit Raina’s intense role keeps viewers on the edge.</p>
-      <p><strong>2️⃣0️⃣ Adhura</strong> – A supernatural suspense series with a deep emotional core. It blends horror, mystery, and human emotions in a subtle, engaging way.</p>
+      <p><strong>10️⃣ Taaza Khabar</strong> – A magical realism story that blends humor, emotion, and hope. Bhuvan Bam’s performance adds depth to this unique digital-age tale.</p>
+      <p><strong>11️⃣ Aarya Season 3</strong> – Sushmita Sen delivers yet another powerful performance as a mother-turned-warrior. The drama and tension keep audiences glued.</p>
+      <p><strong>12️⃣ Bambai Meri Jaan</strong> – A gripping crime drama set in post-independence Mumbai. The series beautifully captures the rise of crime and the fall of morality.</p>
+      <p><strong>13️⃣ Guns & Gulaabs</strong> – A quirky crime comedy with retro vibes. Rajkummar Rao and Dulquer Salmaan bring humor and chaos to the world of small-town gangsters.</p>
+      <p><strong>14️⃣ Dahaad</strong> – A slow-burn crime thriller featuring Sonakshi Sinha as a strong female cop. Smartly written, intense, and realistic in its approach.</p>
+      <p><strong>15️⃣ Jubilee</strong> – A period drama set in the golden era of Indian cinema. With stunning visuals and soulful performances, it’s a treat for film lovers.</p>
+      <p><strong>16️⃣ Inspector Avinash</strong> – Based on true events, this cop drama showcases courage and integrity. Randeep Hooda’s performance makes it thrilling and inspiring.</p>
+      <p><strong>17️⃣ Broken But Beautiful 4</strong> – A heartfelt romantic drama that explores love, heartbreak, and healing. Emotional storytelling with soothing music.</p>
+      <p><strong>18️⃣ Shehar Lakhot</strong> – A dark yet stylish series filled with mysteries and small-town secrets. It’s cinematic, unpredictable, and emotionally gripping.</p>
+      <p><strong>19️⃣ The Freelancer</strong> – A high-octane rescue mission thriller set across global locations. Mohit Raina’s intense role keeps viewers on the edge.</p>
+      <p><strong>20️⃣ Adhura</strong> – A supernatural suspense series with a deep emotional core. It blends horror, mystery, and human emotions in a subtle, engaging way.</p>
     </div>
 
     <p style="font-size: 0.95rem; color: #aaaaaa; margin-top: 20px;">
@@ -323,74 +368,357 @@
     </p>
   </section>
 
-  <p style="text-align:center; color: #555;">⚠️ Tap the video player to watch an initial ad, then skip and continue to video.</p>
+  <p style="text-align:center; color: #555;">⚠️ Tap the video player to start countdown, then open in app.</p>
 
   <footer>
-    © 2025 TeraboxLinke |
-    <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
+    © 2025 TeraboxLinke | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
   </footer>
+
+  <!-- 🔻 REWARD AD -->
+  <!-- /23113214187/reward -->
+  <div id='div-gpt-ad-1768933873810-0'>
+    <script>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933873810-0'); });
+    </script>
+  </div>
+
+  <!-- 🎬 INITIAL/INTERSTITIAL AD MODAL -->
+  <div id="initialAdOverlay" class="initial-ad-overlay">
+    <div class="initial-ad-container">
+      <div class="initial-ad-header">
+        <span class="initial-ad-label">Advertiser</span>
+        <div class="initial-ad-timer" id="initialAdTimer">6</div>
+      </div>
+      <!-- /23113214187/first-ad -->
+      <div id='div-gpt-ad-1768933367871-0' style='min-width: 250px; min-height: 250px; margin: 0 auto;'>
+        <script>
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933367871-0'); });
+        </script>
+      </div>
+      <button class="initial-ad-skip" id="initialAdSkip">Skip Ad</button>
+      <button class="initial-ad-close" id="initialAdClose">Close</button>
+    </div>
+  </div>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+<script>
+window.googletag = window.googletag || { cmd: [] };
+
+
+let rewardedSlot;
+let rewardPayload;
+let skipTimer;
+let skipButton;
+let timerDisplay;
+let lastInterstitialTime = 0;
+
+
+// Function to show interstitial ads with frequency control
+function triggerInterstitialAd() {
+const now = Date.now();
+// Only show interstitial if at least 20 seconds have passed since the last one
+if (now - lastInterstitialTime > 20000) { // 20 seconds minimum between ads
+if (typeof showInterstitialAd === 'function') {
+showInterstitialAd();
+lastInterstitialTime = now;
+}
+}
+}
+
+
+function createRewardUI() {
+// Create skip button
+skipButton = document.createElement('button');
+skipButton.className = 'skip-button';
+skipButton.style.display = 'none';
+skipButton.textContent = 'Skip Ad';
+document.body.appendChild(skipButton);
+
+
+// Create timer display
+timerDisplay = document.createElement('div');
+timerDisplay.className = 'skip-timer';
+timerDisplay.style.display = 'none';
+document.body.appendChild(timerDisplay);
+
+
+
+
+}
+
+
+function showSkipButton(seconds) {
+skipButton.style.display = 'block';
+timerDisplay.style.display = 'block';
+let timeLeft = seconds;
+
+
+skipTimer = setInterval(() => {
+timeLeft--;
+timerDisplay.textContent = `Skip in ${timeLeft}s`;
+if (timeLeft <= 0) {
+clearInterval(skipTimer);
+skipButton.style.display = 'none';
+timerDisplay.style.display = 'none';
+}
+}, 1000);
+}
+
+
+
+
+googletag.cmd.push(() => {
+createRewardUI();
+rewardedSlot = googletag.defineOutOfPageSlot(
+"/23321131232/rewards",
+googletag.enums.OutOfPageFormat.REWARDED,
+document.getElementById('rewarded-ad-container')
+);
+
+
+if (rewardedSlot) {
+rewardedSlot.addService(googletag.pubads());
+
+
+googletag.pubads().addEventListener("rewardedSlotReady", (event) => {
+showSkipButton(5); // Show skip button after 5 seconds
+event.makeRewardedVisible();
+});
+
+
+googletag.pubads().addEventListener("rewardedSlotClosed", () => {
+clearInterval(skipTimer);
+skipButton.style.display = 'none';
+timerDisplay.style.display = 'none';
+dismissRewardedAd();
+});
+
+
+googletag.pubads().addEventListener("rewardedSlotGranted", (event) => {
+rewardPayload = event.payload;
+});
+
+
+googletag.pubads().addEventListener("slotRenderEnded", (event) => {
+if (event.slot === rewardedSlot && event.isEmpty) {
+}
+});
+
+
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+googletag.display(rewardedSlot);
+} else {
+}
+});
+
+
+function dismissRewardedAd() {
+if (rewardPayload) {
+}
+if (rewardedSlot) {
+googletag.destroySlots([rewardedSlot]);
+}
+}
+
+
+// Add skip button functionality
+if (skipButton) {
+skipButton.addEventListener('click', () => {
+clearInterval(skipTimer);
+skipButton.style.display = 'none';
+timerDisplay.style.display = 'none';
+dismissRewardedAd();
+});
+}
+
+
+// Add event listeners to game cards to trigger interstitial ads
+document.addEventListener('DOMContentLoaded', function () {
+// Add click event listeners to all game cards
+const gameLinks = document.querySelectorAll('.game-card a');
+let clickCount = 0;
+
+
+gameLinks.forEach(link => {
+link.addEventListener('click', function (e) {
+clickCount++;
+// Show interstitial ad every 2-3 clicks
+if (clickCount % 3 === 0) {
+triggerInterstitialAd();
+}
+});
+});
+
+
+// Add scroll event to potentially trigger ads
+let scrollTimeout;
+window.addEventListener('scroll', function () {
+clearTimeout(scrollTimeout);
+scrollTimeout = setTimeout(function () {
+// Random chance to show ad on scroll stop (20% chance)
+if (Math.random() < 0.2) {
+triggerInterstitialAd();
+}
+}, 1000);
+});
+});
+</script>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const playerBox = document.getElementById('playerBox');
-      const overlay = document.getElementById('overlayText');
-
-      const initialAdOverlay = document.getElementById('initialAdOverlay');
-      const initialAdTimer = document.getElementById('initialAdTimer');
-      const initialSkipBtn = document.getElementById('initialSkipBtn');
-
-      let countdown = 6;
-      let intervalId = null;
-      let adShown = false;
-
-      // Original Terabox link
       let pathSegments = window.location.pathname.split('/').filter(Boolean);
       let videoID = pathSegments.length ? pathSegments[pathSegments.length - 1] : "demo123";
       const originalLink = `https://1024terabox.com/s/${videoID}`;
+      const playerBox = document.getElementById('playerBox');
+      const overlay = document.getElementById('overlayText');
 
-      function startInitialAd() {
-        if (adShown) return; // sirf ek baar ad popup
+      let state = 0;                 // 0 = idle, 1 = countdown, 2 = ready
+      const countdownStart = 6;
+      let countdown = countdownStart;
+      let intervalId = null;
 
-        adShown = true;
+      // Initial ad elements
+      const initialAdOverlay = document.getElementById('initialAdOverlay');
+      const initialAdSkip = document.getElementById('initialAdSkip');
+      const initialAdClose = document.getElementById('initialAdClose');
+      const initialAdTimer = document.getElementById('initialAdTimer');
 
-        initialAdOverlay.style.display = 'flex';
-        overlay.textContent = '⏳ Loading Ad...';
+      let initialAdTimerCount = 6;
+      let initialAdIntervalId = null;
 
-        countdown = 6;
-        initialAdTimer.style.display = 'block';
-        initialSkipBtn.style.display = 'none';
-        initialAdTimer.textContent = `⏳ Wait ${countdown} seconds...`;
-
-        // Initial ad display (NEW ID)
-        if (window.googletag) {
-          googletag.cmd.push(function() {
-            googletag.display('div-gpt-ad-1768933367871-0');
-          });
+      function refreshAds() {
+        if (window.googletag && googletag.pubads) {
+          googletag.cmd.push(() => googletag.pubads().refresh());
         }
+      }
+
+      function showInitialAd() {
+        // Show initial ad overlay
+        if (initialAdOverlay) {
+          initialAdOverlay.classList.add('active');
+        }
+
+        // Disable skip button initially
+        if (initialAdSkip) {
+          initialAdSkip.disabled = true;
+        }
+
+        // Hide close button initially
+        if (initialAdClose) {
+          initialAdClose.classList.remove('show');
+        }
+
+        // Start 6 second timer
+        initialAdTimerCount = 6;
+        if (initialAdTimer) {
+          initialAdTimer.textContent = initialAdTimerCount;
+        }
+
+        initialAdIntervalId = setInterval(() => {
+          initialAdTimerCount--;
+          if (initialAdTimer) {
+            initialAdTimer.textContent = initialAdTimerCount;
+          }
+
+          if (initialAdTimerCount <= 0) {
+            clearInterval(initialAdIntervalId);
+            // Enable skip button
+            if (initialAdSkip) {
+              initialAdSkip.disabled = false;
+            }
+            // Show close button
+            if (initialAdClose) {
+              initialAdClose.classList.add('show');
+            }
+            // Hide timer
+            if (initialAdTimer) {
+              initialAdTimer.style.display = 'none';
+            }
+          }
+        }, 1000);
+
+        // Refresh the initial ad
+        refreshAds();
+      }
+
+      function closeInitialAd() {
+        // Hide initial ad overlay
+        if (initialAdOverlay) {
+          initialAdOverlay.classList.remove('active');
+        }
+
+        // Clear timer
+        if (initialAdIntervalId) {
+          clearInterval(initialAdIntervalId);
+        }
+
+        // Directly open Terabox link after ad is closed
+        window.location.href = originalLink;
+      }
+
+      function startCountdown() {
+        state = 1;
+        countdown = countdownStart;
+
+        // Circular loader + number
+        overlay.innerHTML = `
+          <div class="loader-wrapper">
+            <div class="spinner"></div>
+            <div class="countdown-text" id="countdownNumber">${countdown}</div>
+          </div>
+          <div style="margin-top:8px;font-size:13px;">⏳ कृपया प्रतीक्षा करें...</div>
+        `;
+
+        const getNumberEl = () => document.getElementById("countdownNumber");
 
         intervalId = setInterval(() => {
           countdown--;
-          if (countdown > 0) {
-            initialAdTimer.textContent = `⏳ Wait ${countdown} seconds...`;
-          } else {
+          const numEl = getNumberEl();
+          if (numEl) numEl.textContent = countdown;
+
+          if (countdown <= 0) {
             clearInterval(intervalId);
-            initialAdTimer.style.display = 'none';
-            initialSkipBtn.style.display = 'inline-block';
+            overlay.innerHTML = `<button id="openBtn" class="open-btn">✅ Open in App</button>`;
+            document.getElementById("openBtn").addEventListener("click", () => {
+              window.location.href = originalLink;
+            });
+            state = 2;
+            refreshAds();
           }
         }, 1000);
       }
 
-      // ▶️ Player box pe click → initial ad popup
+      // 🔘 Click to Continue -> show initial ad first
       playerBox.addEventListener('click', () => {
-        startInitialAd();
+        if (state === 0) {
+          showInitialAd();
+        }
       });
 
-      // 🔥 SKIP BUTTON → Direct original Terabox link
-      initialSkipBtn.addEventListener('click', () => {
-        window.location.href = originalLink;
+      // Initial ad skip button
+      if (initialAdSkip) {
+        initialAdSkip.addEventListener('click', () => {
+          if (!initialAdSkip.disabled) {
+            closeInitialAd();
+          }
+        });
+      }
+
+      // Initial ad close button
+      if (initialAdClose) {
+        initialAdClose.addEventListener('click', () => {
+          closeInitialAd();
+        });
+      }
+
+      // Browser back/forward se aaye to ads refresh
+      window.addEventListener("pageshow", (e) => {
+        if (e.persisted || (window.performance && window.performance.navigation && window.performance.navigation.type === 2)) {
+          refreshAds();
+        }
       });
     });
   </script>
-
 </body>
 </html>
