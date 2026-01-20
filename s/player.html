@@ -63,13 +63,6 @@
         'div-gpt-ad-1768933367871-0'
       ).addService(googletag.pubads());
 
-      // Reward ad
-      googletag.defineSlot(
-        '/23113214187/reward',
-        ['fluid', [1, 1]],
-        'div-gpt-ad-1768933873810-0'
-      ).addService(googletag.pubads());
-
       googletag.pubads().enableSingleRequest();
       googletag.enableServices();
     });
@@ -374,16 +367,6 @@
     © 2025 TeraboxLinke | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
   </footer>
 
-  <!-- 🔻 REWARD AD -->
-  <center>
-    <!-- /23113214187/reward -->
-    <div id='div-gpt-ad-1768933873810-0' style='min-width: 1px; min-height: 1px;'>
-      <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768933873810-0'); });
-      </script>
-    </div>
-  </center>
-
   <!-- 🎬 INITIAL/INTERSTITIAL AD MODAL -->
   <div id="initialAdOverlay" class="initial-ad-overlay">
     <div class="initial-ad-container">
@@ -557,6 +540,106 @@
         }
       });
     });
+  </script>
+
+  <!-- Skip Button -->
+  <button id="rewardSkipBtn" class="reward-skip-btn" style="display:none;">
+    Skip Ad
+  </button>
+
+  <!-- Timer -->
+  <div id="rewardTimer" class="reward-timer" style="display:none;">
+    Skip in 5s
+  </div>
+
+  <!-- Rewarded Ad -->
+  <!-- /23113214187/reward -->
+  <div id='div-gpt-ad-1768934516178-0'>
+    <script>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1768934516178-0'); });
+    </script>
+  </div>
+
+  <!-- Rewarded Ad Script -->
+  <script>
+    window.googletag = window.googletag || { cmd: [] };
+
+    let rewardedSlot;
+    let rewardPayload = null;
+    let skipTimer;
+
+    const skipBtn = document.getElementById("rewardSkipBtn");
+    const timerBox = document.getElementById("rewardTimer");
+
+    function startSkipTimer(seconds) {
+      let timeLeft = seconds;
+
+      if (skipBtn) skipBtn.style.display = "block";
+      if (timerBox) {
+        timerBox.style.display = "block";
+        timerBox.innerText = `Skip in ${timeLeft}s`;
+      }
+
+      skipTimer = setInterval(() => {
+        timeLeft--;
+        if (timerBox) timerBox.innerText = `Skip in ${timeLeft}s`;
+
+        if (timeLeft <= 0) {
+          clearInterval(skipTimer);
+          if (skipBtn) skipBtn.style.display = "none";
+          if (timerBox) timerBox.style.display = "none";
+        }
+      }, 1000);
+    }
+
+    function destroyRewarded() {
+      if (rewardedSlot) {
+        googletag.destroySlots([rewardedSlot]);
+      }
+    }
+
+    googletag.cmd.push(function () {
+      rewardedSlot = googletag.defineOutOfPageSlot(
+        "/23113214187/reward",
+        "div-gpt-ad-1768934516178-0"
+      );
+
+      if (!rewardedSlot) return;
+
+      rewardedSlot.addService(googletag.pubads());
+
+      // ✅ Ad Ready
+      googletag.pubads().addEventListener("rewardedSlotReady", function (event) {
+        startSkipTimer(5);
+        event.makeRewardedVisible();
+      });
+
+      // ✅ Reward Granted
+      googletag.pubads().addEventListener("rewardedSlotGranted", function (event) {
+        rewardPayload = event.payload;
+        console.log("Reward granted:", rewardPayload);
+      });
+
+      // ✅ Ad Closed
+      googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+        clearInterval(skipTimer);
+        if (skipBtn) skipBtn.style.display = "none";
+        if (timerBox) timerBox.style.display = "none";
+        destroyRewarded();
+      });
+
+      googletag.enableServices();
+    });
+
+    // Skip button click
+    if (skipBtn) {
+      skipBtn.addEventListener("click", () => {
+        clearInterval(skipTimer);
+        skipBtn.style.display = "none";
+        if (timerBox) timerBox.style.display = "none";
+        destroyRewarded();
+      });
+    }
   </script>
 </body>
 </html>
