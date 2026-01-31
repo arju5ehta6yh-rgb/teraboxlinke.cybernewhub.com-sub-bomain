@@ -16,35 +16,34 @@
 
     googletag.cmd.push(function() {
 
-      /* 🔺 NAVBAR KE UPER */
+      /* 🔺 NAVBAR KE UPER - /23113214187/first-ad */
       googletag.defineSlot(
         '/23113214187/first-ad',
-        [[336, 280], 'fluid', [250, 250], [250, 360]],
-        'div-gpt-ad-1769275210662-0'
+        [[300, 250], [336, 280]],
+        'div-gpt-ad-1769882294223-0'
       ).addService(googletag.pubads());
 
-      /* 🔻 NAVBAR KE NICHE (PLAYER KE UPER) */
+      /* 🔻 NAVBAR KE NICHE - /23113214187/first-ad-unit */
       googletag.defineSlot(
-        '/23113214187/first-ad',
-        [[250, 250], [250, 360], [336, 280], 'fluid'],
-        'div-gpt-ad-1769275245060-0'
+        '/23113214187/first-ad-unit',
+        [[300, 250], [336, 280]],
+        'div-gpt-ad-1769882376824-0'
       ).addService(googletag.pubads());
 
-      /* 🔻 PLAYER KE NICHE */
+      /* 🔻 PLAYER KE NICHE - /23113214187/first-ad-unit */
       googletag.defineSlot(
-        '/23113214187/first-ad',
-        [[250, 250], [250, 360], [336, 280], 'fluid'],
-        'div-gpt-ad-1769275283640-0'
+        '/23113214187/first-ad-unit',
+        [[336, 280], [300, 250]],
+        'div-gpt-ad-1769882612496-0'
       ).addService(googletag.pubads());
 
-      /* 🔥 INITIAL POPUP AD */
+      /* 🔥 INITIAL/INTERSTITIAL AD - /23113214187/initialy-ad */
       googletag.defineSlot(
-        '/23113214187/first-ad',
-        [[250, 360], 'fluid', [250, 250], [336, 280]],
-        'div-gpt-ad-1769275377418-0'
+        '/23113214187/initialy-ad',
+        [[336, 280], [300, 250]],
+        'div-gpt-ad-1769882678097-0'
       ).addService(googletag.pubads());
 
-      googletag.pubads().enableSingleRequest();
       googletag.enableServices();
     });
   </script>
@@ -233,9 +232,9 @@
   <center>
     <div class="code-block-label">Advertisements</div>
     <div class="ad-wrapper">
-      <div id="div-gpt-ad-1769275210662-0" style="min-width: 250px; min-height: 250px;">
+      <div id="div-gpt-ad-1769882294223-0" style="min-width: 300px; min-height: 250px;">
         <script>
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1769275210662-0'); });
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1769882294223-0'); });
         </script>
       </div>
     </div>
@@ -248,9 +247,9 @@
   <center>
     <div class="code-block-label">Advertisements</div>
     <div class="ad-wrapper">
-      <div id="div-gpt-ad-1769275245060-0" style="min-width: 250px; min-height: 250px;">
+      <div id="div-gpt-ad-1769882376824-0" style="min-width: 300px; min-height: 250px;">
         <script>
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1769275245060-0'); });
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1769882376824-0'); });
         </script>
       </div>
     </div>
@@ -262,7 +261,7 @@
       <div class="initial-ad-header">Advertiser</div>
 
       <div class="ad-wrapper" style="min-height:250px;">
-        <div id="div-gpt-ad-1769275377418-0" style="min-width: 250px; min-height: 250px;"></div>
+        <div id="div-gpt-ad-1769882678097-0" style="min-width: 300px; min-height: 250px;"></div>
       </div>
 
       <div id="initialAdTimer">⏳ Wait 6 seconds...</div>
@@ -282,9 +281,9 @@
   <center>
     <div class="code-block-label">Advertisements</div>
     <div class="ad-wrapper">
-      <div id="div-gpt-ad-1769275283640-0" style="min-width: 250px; min-height: 250px;">
+      <div id="div-gpt-ad-1769882612496-0" style="min-width: 300px; min-height: 250px;">
         <script>
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1769275283640-0'); });
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1769882612496-0'); });
         </script>
       </div>
     </div>
@@ -363,10 +362,10 @@
         initialSkipBtn.style.display = 'none';
         initialAdTimer.textContent = `⏳ Wait ${countdown} seconds...`;
 
-        // Initial ad display (NEW ID)
+        // Initial ad display (interstitial - /23113214187/initialy-ad)
         if (window.googletag) {
           googletag.cmd.push(function() {
-            googletag.display('div-gpt-ad-1769275377418-0');
+            googletag.display('div-gpt-ad-1769882678097-0');
           });
         }
 
