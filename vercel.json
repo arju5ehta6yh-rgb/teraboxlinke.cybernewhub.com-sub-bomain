@@ -17,7 +17,7 @@
      { "source": "/k/:linkid", "destination": "/k/player.html" },
     { "source": "/d/:linkid", "destination": "/d/player.html" },
     { "source": "/d1/:linkid", "destination": "/d1/player.html" },
-     { "source": "/k1/:linkid", "destination": "/k1/player.html" },
+     { "source": "/k1/:linkid", "destination": "/k1/video.html" },
       { "source": "/s1/:linkid", "destination": "/s1/player.html" },
     { "source": "/i/:linkid", "destination": "/i/player.html" },
     { "source": "/f/:linkid", "destination": "/f/player.html" },
